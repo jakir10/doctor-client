@@ -1,0 +1,24 @@
+import { useEffect, useState } from "react";
+
+const useUserRole = (user) => {
+  const [isDoctor, setIsDoctor] = useState(false);
+
+  useEffect(() => {
+    const getUserRole = async () => {
+      // Assuming you have an API endpoint that returns the user's role
+      const response = await fetch(
+        `http://localhost:5000/doctor/${user.email}`
+      );
+      const data = await response.json();
+      setIsDoctor(data.doctor);
+    };
+
+    if (user) {
+      getUserRole();
+    }
+  }, [user]);
+
+  return isDoctor;
+};
+
+export default useUserRole;
