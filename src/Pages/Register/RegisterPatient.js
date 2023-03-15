@@ -14,9 +14,9 @@ const RegisterPatient = () => {
     reset,
   } = useForm();
 
-  const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/service").then((res) => res.json())
-  );
+  // const { data: services, isLoading } = useQuery("services", () =>
+  //   fetch("http://localhost:5000/service").then((res) => res.json())
+  // );
 
   const imageStorageKey = "13fef34c3ca2fbe67a4aa7a5b0e8be58";
   const [user, loading, error] = useAuthState(auth);
@@ -65,7 +65,7 @@ const RegisterPatient = () => {
       });
   };
 
-  if (isLoading) {
+  if (loading) {
     return <Loading></Loading>;
   }
 

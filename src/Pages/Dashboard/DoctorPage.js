@@ -106,7 +106,7 @@ const DoctorPage = () => {
                 </p>
               )}
               {booking.price && booking.paid && (
-                <div className="flex">
+                <div className="">
                   <p>
                     <span className="text-primary font-bold">Paid</span>
                   </p>

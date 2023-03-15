@@ -10,7 +10,7 @@ const DoctorsCard = ({ doctor }) => {
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{}</h2>
-          <p>{name}</p>
+          <p>Dr. {name}</p>
           <p>{specialty}</p>
           <p>{email}</p>
         </div>
