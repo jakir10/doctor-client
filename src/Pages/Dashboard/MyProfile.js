@@ -16,7 +16,7 @@ const MyProfile = () => {
   } = useForm();
 
   // const { data: services, isLoading } = useQuery("services", () =>
-  //   fetch("http://localhost:5000/service").then((res) => res.json())
+  //   fetch("https://doctors-server-beta.vercel.app/service").then((res) => res.json())
   // );
 
   const imageStorageKey = "13fef34c3ca2fbe67a4aa7a5b0e8be58";
@@ -43,7 +43,7 @@ const MyProfile = () => {
             img: img,
           };
           // sending profile info to database
-          fetch("http://localhost:5000/profile", {
+          fetch("https://doctors-server-beta.vercel.app/profile", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -70,7 +70,7 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery("profiles", () =>
-    fetch("http://localhost:5000/profile", {
+    fetch("https://doctors-server-beta.vercel.app/profile", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -79,7 +79,7 @@ const MyProfile = () => {
       .then((data) => {
         console.log(data);
         const imageUrl = data.profileImageId
-          ? `http://localhost:5000/image/${data.profileImageId}`
+          ? `https://doctors-server-beta.vercel.app/image/${data.profileImageId}`
           : null;
         if (imageUrl) {
           return fetch(imageUrl)

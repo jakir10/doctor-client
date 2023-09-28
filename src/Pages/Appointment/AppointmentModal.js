@@ -15,7 +15,7 @@ const AppointmentModal = ({ date, treatment, setTreatment, refetch }) => {
 
   useEffect(() => {
     // Fetch doctors data from backend
-    fetch("http://localhost:5000/user/doctor")
+    fetch("https://doctors-server-beta.vercel.app/user/doctor")
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data);
@@ -42,7 +42,7 @@ const AppointmentModal = ({ date, treatment, setTreatment, refetch }) => {
       doctor: selectedDoctor,
     };
 
-    fetch("http://localhost:5000/booking", {
+    fetch("https://doctors-server-beta.vercel.app/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",

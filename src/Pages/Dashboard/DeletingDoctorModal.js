@@ -8,7 +8,7 @@ const DeletingDoctorModal = ({
 }) => {
   const { name, email } = deletingDoctor;
   const handleDelete = () => {
-    fetch(`http://localhost:5000/doctor/${email}`, {
+    fetch(`https://doctors-server-beta.vercel.app/doctor/${email}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

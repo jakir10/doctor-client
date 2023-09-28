@@ -6,7 +6,7 @@ const UserTable = ({ user, index, refetch }) => {
   const { _id, email, role } = user;
   const [users, setUsers] = useState([]);
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://doctors-server-beta.vercel.app/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -29,7 +29,7 @@ const UserTable = ({ user, index, refetch }) => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are You sure! Want to Remove This User");
     if (proceed) {
-      fetch(`http://localhost:5000/user/${id}`, {
+      fetch(`https://doctors-server-beta.vercel.app/user/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

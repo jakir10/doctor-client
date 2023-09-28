@@ -13,7 +13,7 @@ const DoctorPage = () => {
   useEffect(() => {
     const doctor = user?.displayName; // Replace with the correct doctor value
     console.log(doctor);
-    const url = `http://localhost:5000/bookings?doctor=${doctor}`;
+    const url = `https://doctors-server-beta.vercel.app/bookings?doctor=${doctor}`;
     const fetchBookings = async () => {
       try {
         const { data } = await axios.get(url);
@@ -49,7 +49,7 @@ const DoctorPage = () => {
       bookingId: bookingId,
     };
 
-    fetch("http://localhost:5000/prescription", {
+    fetch("https://doctors-server-beta.vercel.app/prescription", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

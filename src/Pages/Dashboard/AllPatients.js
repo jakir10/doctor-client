@@ -8,8 +8,8 @@ const AllPatients = () => {
 
   useEffect(() => {
     axios
-      // .get(`http://localhost:5000/bookings`)
-      .get(`http://localhost:5000/bookings/all`)
+      // .get(`https://doctors-server-beta.vercel.app/bookings`)
+      .get(`https://doctors-server-beta.vercel.app/bookings/all`)
       .then((response) => setBookings(response.data))
       .catch((error) => console.log(error));
   }, []);

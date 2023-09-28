@@ -15,9 +15,9 @@ const AvailableTimes = ({ date }) => {
     isLoading,
     refetch,
   } = useQuery(["available", formattedDate], () =>
-    fetch(`http://localhost:5000/available?date=${formattedDate}`).then((res) =>
-      res.json()
-    )
+    fetch(
+      `https://doctors-server-beta.vercel.app/available?date=${formattedDate}`
+    ).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;

@@ -15,7 +15,9 @@ const RegisterDoctor = () => {
   } = useForm();
 
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/service").then((res) => res.json())
+    fetch("https://doctors-server-beta.vercel.app/service").then((res) =>
+      res.json()
+    )
   );
 
   const imageStorageKey = "13fef34c3ca2fbe67a4aa7a5b0e8be58";
@@ -46,14 +48,17 @@ const RegisterDoctor = () => {
             role: "doctor", // add role as doctor
           };
           // sending doctor info to database
-          fetch(`http://localhost:5000/user/${doctor?.email}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(doctor),
-          })
+          fetch(
+            `https://doctors-server-beta.vercel.app/user/${doctor?.email}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(doctor),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               console.log("result", result);

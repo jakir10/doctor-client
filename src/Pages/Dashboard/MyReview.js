@@ -17,14 +17,16 @@ const MyReview = () => {
     reset,
   } = useForm();
   const { data: review, isLoading } = useQuery("reviews", () =>
-    fetch("http://localhost:5000/review").then((res) => res.json())
+    fetch("https://doctors-server-beta.vercel.app/review").then((res) =>
+      res.json()
+    )
   );
 
   const imageStorageKey = "13fef34c3ca2fbe67a4aa7a5b0e8be58";
 
   // const onSubmit = async data => {
   //     console.log(data);
-  //     const url = `http://localhost:5000/review`;
+  //     const url = `https://doctors-server-beta.vercel.app/review`;
 
   //     fetch(url, {
   //         method: 'POST',
@@ -71,7 +73,7 @@ const MyReview = () => {
             img: img,
           };
           // sending doctor info to database
-          fetch("http://localhost:5000/review", {
+          fetch("https://doctors-server-beta.vercel.app/review", {
             method: "POST",
             headers: {
               "content-type": "application/json",

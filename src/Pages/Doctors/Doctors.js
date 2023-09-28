@@ -10,7 +10,7 @@ const Doctors = () => {
     isLoading,
     refetch,
   } = useQuery("doctors", () =>
-    fetch("http://localhost:5000/user/doctor", {
+    fetch("https://doctors-server-beta.vercel.app/user/doctor", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },

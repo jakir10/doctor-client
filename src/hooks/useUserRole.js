@@ -7,7 +7,7 @@ const useUserRole = (user) => {
     const getUserRole = async () => {
       // Assuming you have an API endpoint that returns the user's role
       const response = await fetch(
-        `http://localhost:5000/doctor/${user.email}`
+        `https://doctors-server-beta.vercel.app/doctor/${user.email}`
       );
       const data = await response.json();
       setIsDoctor(data.doctor);

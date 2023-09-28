@@ -11,7 +11,7 @@ const MyAppointments = () => {
 
   // useEffect(() => {
   //     if (user) {
-  //         fetch(`http://localhost:5000/booking?.patient=${user.email}`)
+  //         fetch(`https://doctors-server-beta.vercel.app/booking?.patient=${user.email}`)
   //             .then(res => res.json())
   //             .then(data => setAppointments(data));
   //     }
@@ -19,12 +19,15 @@ const MyAppointments = () => {
   useEffect(() => {
     console.log(user.email);
     if (user) {
-      fetch(`http://localhost:5000/booking?patient=${user.email}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
+      fetch(
+        `https://doctors-server-beta.vercel.app/booking?patient=${user.email}`,
+        {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
         .then((res) => {
           console.log("res", res);
           if (res.status === 401 || res.status === 403) {

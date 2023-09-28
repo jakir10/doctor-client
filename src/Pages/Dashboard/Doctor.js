@@ -13,7 +13,9 @@ const Doctor = () => {
   } = useForm();
 
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/service").then((res) => res.json())
+    fetch("https://doctors-server-beta.vercel.app/service").then((res) =>
+      res.json()
+    )
   );
 
   const imageStorageKey = "13fef34c3ca2fbe67a4aa7a5b0e8be58";
@@ -40,7 +42,7 @@ const Doctor = () => {
             img: img,
           };
           // sending doctor info to database
-          fetch("http://localhost:5000/doctor", {
+          fetch("https://doctors-server-beta.vercel.app/doctor", {
             method: "POST",
             headers: {
               "content-type": "application/json",
